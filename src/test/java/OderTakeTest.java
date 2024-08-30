@@ -3,9 +3,9 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import сonstans.OrderData;
-import сonstans.UserData;
-import сonstans.UserDelete;
+import constans.OrderData;
+import constans.UserData;
+import constans.UserDelete;
 
 
 import static org.apache.http.HttpStatus.*;

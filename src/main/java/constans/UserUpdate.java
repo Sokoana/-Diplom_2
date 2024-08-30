@@ -1,4 +1,4 @@
-package сonstans;
+package constans;
 
 public class UserUpdate {
     private String email;

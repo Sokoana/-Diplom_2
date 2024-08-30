@@ -1,4 +1,4 @@
-package сonstans;
+package constans;
 
 public class UserDelete {
     private String email;

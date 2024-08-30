@@ -1,19 +1,17 @@
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import сonstans.AutorizationUser;
-import сonstans.UserData;
-import сonstans.UserDelete;
+import constans.AutorizationUser;
+import constans.UserData;
+
 
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
 
 public class AutorizationTest extends HttpPage {
     private String email;
-    private String name;
     private String password;
     private String accessToken;
     private UserData user;
@@ -25,7 +23,7 @@ public class AutorizationTest extends HttpPage {
         user = UserData.makeRandomUser();
         BasicUser.buildUser(user);
         email = user.getEmail();
-        name = user.getName();
+        String name = user.getName();
         password = user.getPassword();
     }
 

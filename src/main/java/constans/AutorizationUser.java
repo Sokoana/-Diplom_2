@@ -1,4 +1,4 @@
-package сonstans;
+package constans;
 
 public class AutorizationUser {
     private String email;

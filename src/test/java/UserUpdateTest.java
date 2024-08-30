@@ -4,10 +4,10 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import сonstans.AutorizationUser;
-import сonstans.UserData;
-import сonstans.UserDelete;
-import сonstans.UserUpdate;
+import constans.AutorizationUser;
+import constans.UserData;
+import constans.UserDelete;
+import constans.UserUpdate;
 
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.CoreMatchers.is;

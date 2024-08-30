@@ -1,11 +1,11 @@
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import сonstans.OrderData;
+import constans.OrderData;
 
 
 import static io.restassured.RestAssured.given;
-import static сonstans.URL.*;
+import static constans.URL.*;
 
 public class BasicOrder {
 

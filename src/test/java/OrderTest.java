@@ -1,19 +1,13 @@
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import сonstans.OrderData;
-import сonstans.UserData;
-import сonstans.UserDelete;
-
-
-import static org.apache.http.HttpStatus.SC_ACCEPTED;
+import constans.OrderData;
+import constans.UserData;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import io.restassured.common.exception.PathException;
 
 public class OrderTest  extends HttpPage {
     private String email;
@@ -43,7 +37,6 @@ public class OrderTest  extends HttpPage {
         Response response = BasicOrder.createOrder(createOrder);
         response
                 .then().assertThat().statusCode(SC_UNAUTHORIZED).body("success", equalTo(false));
-
     }
 
     @Test
@@ -55,8 +48,6 @@ public class OrderTest  extends HttpPage {
                 .then().assertThat().statusCode(SC_OK).body("order.ingredients[0]._id", is(ingredientFirst))
                 .body("order.ingredients[1]._id", is(ingredientSecond)).body("success", equalTo(true));
     }
-
-
 
     @Test
     @DisplayName("Заказ без ингредиентов")
@@ -76,6 +67,5 @@ public class OrderTest  extends HttpPage {
         response
                 .then().assertThat().statusCode(SC_INTERNAL_SERVER_ERROR);
     }
-
 
 }
