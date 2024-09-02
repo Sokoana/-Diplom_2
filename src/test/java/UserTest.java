@@ -4,17 +4,14 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import constans.UserData;
-
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.equalTo;
-
 public class UserTest extends HttpPage{
     private String email;
     private String name;
     private String accessToken;
     private UserData user;
-
     @Before
     public void setUp() {
         baseURL();
@@ -52,10 +49,5 @@ public class UserTest extends HttpPage{
                 .then().assertThat().statusCode(SC_FORBIDDEN).body("message", is("Email, password and name are required fields"));
         accessToken = response.jsonPath().getString("accessToken");
     }
-
-
-
-
-
     }
 

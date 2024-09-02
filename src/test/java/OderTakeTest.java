@@ -18,7 +18,6 @@ public class OderTakeTest extends HttpPage{
     private String ingredientFirst;
     private String ingredientSecond;
     private UserData user;
-
     @Before
     public void setUp() {
         baseURL();

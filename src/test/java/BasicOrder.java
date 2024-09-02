@@ -2,14 +2,9 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import constans.OrderData;
-
-
 import static io.restassured.RestAssured.given;
 import static constans.URL.*;
-
 public class BasicOrder {
-
-
     @Step("Создание заказа")
     public static Response createOrder(OrderData orderData, String accessToken) {
         RequestSpecification requestSpecification =
@@ -24,7 +19,6 @@ public class BasicOrder {
                         .body(orderData)
                         .post(create_order);
         return response;
-
     }
 
     @Step(" Заказ без авторизации")

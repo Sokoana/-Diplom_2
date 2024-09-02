@@ -5,13 +5,9 @@ import constans.AutorizationUser;
 import constans.UserData;
 import constans.UserDelete;
 import constans.UserUpdate;
-
-
 import static io.restassured.RestAssured.given;
 import static constans.URL.*;
-
 public class BasicUser {
-
 
     @Step("Создание пользователя")
     public static Response buildUser(UserData userData) {
@@ -63,6 +59,5 @@ public class BasicUser {
     @Step("Редактирование пользователя без токена")
     public static Response updateUser(UserUpdate userUpdate) {
         return updateUser(userUpdate, null);
-
     }
 }

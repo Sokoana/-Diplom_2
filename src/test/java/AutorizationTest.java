@@ -5,18 +5,14 @@ import org.junit.Before;
 import org.junit.Test;
 import constans.AutorizationUser;
 import constans.UserData;
-
-
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
-
 public class AutorizationTest extends HttpPage {
     private String email;
     private String password;
     private UserData user;
 
     @Before
-
     public void setUp() {
         baseURL();
         user = UserData.makeRandomUser();
@@ -24,7 +20,6 @@ public class AutorizationTest extends HttpPage {
         email = user.getEmail();
         String name = user.getName();
         password = user.getPassword();
-
     }
 
     @Test

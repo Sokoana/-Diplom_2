@@ -8,7 +8,6 @@ import constans.UserData;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-
 public class OrderTest  extends HttpPage {
     private String email;
     private String accessToken;

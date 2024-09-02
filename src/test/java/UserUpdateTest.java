@@ -8,11 +8,9 @@ import constans.AutorizationUser;
 import constans.UserData;
 import constans.UserDelete;
 import constans.UserUpdate;
-
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.equalTo;
-
 public class UserUpdateTest  extends  HttpPage{
     private String email;
     private String name;
