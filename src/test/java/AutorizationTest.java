@@ -13,7 +13,6 @@ import static org.hamcrest.Matchers.equalTo;
 public class AutorizationTest extends HttpPage {
     private String email;
     private String password;
-    private String accessToken;
     private UserData user;
 
     @Before
@@ -25,6 +24,7 @@ public class AutorizationTest extends HttpPage {
         email = user.getEmail();
         String name = user.getName();
         password = user.getPassword();
+
     }
 
     @Test
@@ -34,7 +34,7 @@ public class AutorizationTest extends HttpPage {
         Response response = BasicUser.autorizationUser(autorizationUser);
         response
                 .then().assertThat().statusCode(SC_OK).body("success", equalTo(true));
-        accessToken = response.jsonPath().getString("accessToken");
+        response.jsonPath().getString("accessToken");
     }
 
     @Test
@@ -43,7 +43,6 @@ public class AutorizationTest extends HttpPage {
         AutorizationUser autorizationUser = new AutorizationUser(RandomStringUtils.randomAlphabetic(8) + "@yandex.ru", RandomStringUtils.randomAlphabetic(5));
         Response response = BasicUser.autorizationUser(autorizationUser);
         response.then().assertThat().statusCode(SC_UNAUTHORIZED).body("success", equalTo(false));
-        accessToken = response.jsonPath().getString("accessToken");
     }
 
     }

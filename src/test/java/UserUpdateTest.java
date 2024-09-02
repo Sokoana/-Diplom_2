@@ -51,11 +51,7 @@ public class UserUpdateTest  extends  HttpPage{
                 .then().assertThat().statusCode(SC_OK).body("success", equalTo(true)).body("user.email", is(email.toLowerCase())).body("user.name", is(name));
         AutorizationUser autorizationUser = new AutorizationUser(email, password);
         BasicUser.autorizationUser(autorizationUser).then().assertThat().statusCode(SC_OK);
-
     }
-
-
-
     @After
     public void deleteUser() {
         BasicUser.deleteUser(new UserDelete(email, name), accessToken).then().statusCode(SC_ACCEPTED);
