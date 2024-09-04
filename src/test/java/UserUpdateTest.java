@@ -17,7 +17,6 @@ public class UserUpdateTest  extends  HttpPage{
     private String password;
     private String accessToken;
     private UserData user;
-
     @Before
     public void setUp() {
         baseURL();
@@ -36,7 +35,6 @@ public class UserUpdateTest  extends  HttpPage{
         response
                 .then().assertThat().statusCode(SC_UNAUTHORIZED).body("success", equalTo(false));
     }
-
     @Test
     @DisplayName("Редактирование данных пользователя")
     public void testUpdateUser() {

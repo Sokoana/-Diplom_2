@@ -20,12 +20,10 @@ public class BasicOrder {
                         .post(create_order);
         return response;
     }
-
     @Step(" Заказ без авторизации")
     public static Response createOrder(OrderData orderData) {
         return createOrder(orderData, null);
     }
-
     @Step("Получение данных об ингредиентах")
     public static Response getIngredients() {
         Response response =
@@ -35,7 +33,6 @@ public class BasicOrder {
                         .get(get_ingredient);
         return response;
     }
-
     @Step("Получение заказов")
     public static Response getOrders(String accessToken) {
         RequestSpecification requestSpecification =
@@ -51,7 +48,6 @@ public class BasicOrder {
                         .get(get_order);
         return response;
     }
-
     @Step("Получение заказов неавторизованного пользователя")
     public static Response getOrdersWithoutToken() {
         return getOrders(null);

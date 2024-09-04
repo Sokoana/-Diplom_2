@@ -1,7 +1,5 @@
 package constans;
-
 import org.apache.commons.lang3.RandomStringUtils;
-
 public class UserData {
     String email;
     String name;
@@ -18,18 +16,12 @@ public class UserData {
         return name;
     }
 
-
-
     public String getEmail() {
         return email;
     }
-
-
-
     public String getPassword() {
         return password;
     }
-
 
     public static UserData makeRandomUser() {
         final String email = RandomStringUtils.randomAlphabetic(7) + "@yandex.ru".toLowerCase();

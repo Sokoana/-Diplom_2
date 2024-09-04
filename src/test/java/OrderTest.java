@@ -1,6 +1,8 @@
+import constans.UserDelete;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import constans.OrderData;
@@ -15,7 +17,6 @@ public class OrderTest  extends HttpPage {
     private String ingredientSecond;
     private String name;
     private UserData user;
-
     @Before
     public void setUp() {
         baseURL();
@@ -27,7 +28,6 @@ public class OrderTest  extends HttpPage {
         response = BasicOrder.getIngredients();
         ingredientFirst = response.jsonPath().getString("data[0]._id");
         ingredientSecond = response.jsonPath().getString("data[1]._id");
-
     }
     @Test
     @DisplayName("Заказ без авторизации")
@@ -37,7 +37,6 @@ public class OrderTest  extends HttpPage {
         response
                 .then().assertThat().statusCode(SC_UNAUTHORIZED).body("success", equalTo(false));
     }
-
     @Test
     @DisplayName("Заказ с ингредиентами")
     public void testOrder() {
@@ -47,7 +46,6 @@ public class OrderTest  extends HttpPage {
                 .then().assertThat().statusCode(SC_OK).body("order.ingredients[0]._id", is(ingredientFirst))
                 .body("order.ingredients[1]._id", is(ingredientSecond)).body("success", equalTo(true));
     }
-
     @Test
     @DisplayName("Заказ без ингредиентов")
     public void testOrderWithoutIngredients() {
@@ -56,7 +54,6 @@ public class OrderTest  extends HttpPage {
         response
                 .then().assertThat().statusCode(SC_BAD_REQUEST).body("success", equalTo(false));
     }
-
     @Test
     @DisplayName("Создание заказа с неверным хэшем ингредиентов")
     public void testOrderWithNullIngredients() {
@@ -66,5 +63,8 @@ public class OrderTest  extends HttpPage {
         response
                 .then().assertThat().statusCode(SC_INTERNAL_SERVER_ERROR);
     }
-
+    @After
+    public void deleteUser() {
+        BasicUser.deleteUser(new UserDelete(email, name), accessToken).then().statusCode(SC_ACCEPTED);
+    }
 }

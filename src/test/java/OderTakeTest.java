@@ -6,8 +6,6 @@ import org.junit.Test;
 import constans.OrderData;
 import constans.UserData;
 import constans.UserDelete;
-
-
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
 public class OderTakeTest extends HttpPage{
@@ -47,9 +45,6 @@ public class OderTakeTest extends HttpPage{
         response
                 .then().assertThat().statusCode(SC_OK).body("success", equalTo(true));
     }
-
-
-
     @After
     public void deleteUser() {
         BasicUser.deleteUser(new UserDelete(email, name), accessToken).then().statusCode(SC_ACCEPTED);

@@ -11,7 +11,6 @@ public class AutorizationTest extends HttpPage {
     private String email;
     private String password;
     private UserData user;
-
     @Before
     public void setUp() {
         baseURL();
@@ -21,7 +20,6 @@ public class AutorizationTest extends HttpPage {
         String name = user.getName();
         password = user.getPassword();
     }
-
     @Test
     @DisplayName("Авторизация пользователя")
     public void testAutorizationUser() {
@@ -31,7 +29,6 @@ public class AutorizationTest extends HttpPage {
                 .then().assertThat().statusCode(SC_OK).body("success", equalTo(true));
         response.jsonPath().getString("accessToken");
     }
-
     @Test
     @DisplayName("Авторизация  с неверным логином и паролем")
     public void testLoginUserWrongData() {
@@ -39,6 +36,5 @@ public class AutorizationTest extends HttpPage {
         Response response = BasicUser.autorizationUser(autorizationUser);
         response.then().assertThat().statusCode(SC_UNAUTHORIZED).body("success", equalTo(false));
     }
-
     }
 

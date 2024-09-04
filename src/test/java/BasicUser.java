@@ -8,7 +8,6 @@ import constans.UserUpdate;
 import static io.restassured.RestAssured.given;
 import static constans.URL.*;
 public class BasicUser {
-
     @Step("Создание пользователя")
     public static Response buildUser(UserData userData) {
         return given().log().all()
@@ -18,7 +17,6 @@ public class BasicUser {
                 .when()
                 .post(create_user);
     }
-
     @Step("Авторизация пользователя")
     public static Response autorizationUser(AutorizationUser autorizationUser) {
         return given().log().all()
@@ -28,7 +26,6 @@ public class BasicUser {
                 .when()
                 .post(autorization_user);
     }
-
     @Step("Удаление пользователя")
     public static Response deleteUser(UserDelete userDelete, String accessToken) {
         return given()
@@ -39,7 +36,6 @@ public class BasicUser {
                 .when()
                 .delete(delete_user);
     }
-
     @Step("Редатирование  пользователя с токеном")
     public static Response updateUser(UserUpdate userUpdate, String accessToken) {
         RequestSpecification requestSpecification =
@@ -55,7 +51,6 @@ public class BasicUser {
                         .patch(update_user);
         return response;
     }
-
     @Step("Редактирование пользователя без токена")
     public static Response updateUser(UserUpdate userUpdate) {
         return updateUser(userUpdate, null);
