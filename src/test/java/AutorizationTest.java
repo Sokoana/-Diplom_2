@@ -17,8 +17,7 @@ public class AutorizationTest extends HttpPage {
         user = UserData.makeRandomUser();
         BasicUser.buildUser(user);
         email = user.getEmail();
-        String name = user.getName();
-        password = user.getPassword();
+         password = user.getPassword();
     }
     @Test
     @DisplayName("Авторизация пользователя")
@@ -27,8 +26,7 @@ public class AutorizationTest extends HttpPage {
         Response response = BasicUser.autorizationUser(autorizationUser);
         response
                 .then().assertThat().statusCode(SC_OK).body("success", equalTo(true));
-        response.jsonPath().getString("accessToken");
-    }
+            }
     @Test
     @DisplayName("Авторизация  с неверным логином и паролем")
     public void testLoginUserWrongData() {
